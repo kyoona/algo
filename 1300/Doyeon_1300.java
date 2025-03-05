@@ -1,8 +1,7 @@
 import java.io.*;
-import java.util.*;
 
 
-public class Main {
+public class Doyeon_1300 {
     static long N, k;
 
     public static void main(String[] args) throws IOException {
@@ -15,14 +14,14 @@ public class Main {
     }
 
     // 이진 탐색을 활용하여 k번째 수를 찾는 함수
-    private static int findKthNumber(int N, int k) {
-        int left = 1, right = N * N, answer = 0;
+    private static int findKthNumber(long N, long k) {
+        long left = 1, right = N * N, answer = 0;
 
         while (left <= right) {
-            int mid = left + (right - left) / 2;
+            long mid = left + (right - left) / 2;
 
             // mid 이하의 수가 k개 이상이면, mid는 k번째 수로 가능한 값
-            if (countLessOrEqual(N, mid) >= k) {
+            if (countLessOrEqual((int) N, (int) mid) >= k) {
                 answer = mid;
                 right = mid - 1; // 더 작은 값들을 찾아보기 위해 범위 축소
             } else {
@@ -30,7 +29,7 @@ public class Main {
             }
         }
 
-        return answer;
+        return (int) answer;
     }
 
     // x 이하의 수가 몇 개인지 세는 함수
